@@ -1,0 +1,58 @@
+{
+  "coin": "HYPE",
+  "generated_utc": "2026-11-05T02:08:24Z",
+  "current": {
+    "funding_hourly": 1.25e-05,
+    "funding_annualized": 0.10950000000000001,
+    "mark_px": 84.359,
+    "oracle_px": 84.353,
+    "open_interest": 22125583.380000014
+  },
+  "last_settled": {
+    "time_utc": "2026-11-05T02:00:00Z",
+    "funding_rate": 1.25e-05
+  },
+  "windows": {
+    "24h": {
+      "hours_expected": 24,
+      "hours_available": 24,
+      "sum": 0.00030000000000000003,
+      "mean_hourly": 1.25e-05,
+      "annualized_from_mean": 0.10950000000000001,
+      "hours_negative": 0,
+      "min": 1.25e-05,
+      "max": 1.25e-05
+    },
+    "3d": {
+      "hours_expected": 72,
+      "hours_available": 72,
+      "sum": 0.0010968065,
+      "mean_hourly": 1.5233423611111112e-05,
+      "annualized_from_mean": 0.13344479083333335,
+      "hours_negative": 0,
+      "min": 1.25e-05,
+      "max": 7.36469e-05
+    },
+    "7d": {
+      "hours_expected": 168,
+      "hours_available": 168,
+      "sum": 0.0046637404,
+      "mean_hourly": 2.7760359523809522e-05,
+      "annualized_from_mean": 0.24318074942857143,
+      "hours_negative": 1,
+      "min": -8.2213e-06,
+      "max": 0.0002174473
+    },
+    "30d": {
+      "hours_expected": 720,
+      "hours_available": 216,
+      "sum": 0.0051612158000000005,
+      "mean_hourly": 2.3894517592592594e-05,
+      "annualized_from_mean": 0.20931597411111114,
+      "hours_negative": 4,
+      "min": -1.37895e-05,
+      "max": 0.0002174473
+    }
+  },
+  "note": "funding_rate is the hourly rate as a fraction (0.0000125 = 0.00125%/h). Positive: longs pay shorts. sum over a window = cumulative rate; USD received by a short of N coins ~= sum over hours of rate*N*mark_px."
+}
