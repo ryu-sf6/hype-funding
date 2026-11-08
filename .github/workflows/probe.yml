@@ -3,7 +3,7 @@ name: Probe AF (temporary)
 on:
   push:
     branches: [probe]
-    paths: ["probe_af.py", ".github/workflows/probe.yml"]
+    paths: ["probe_af.py", "af_collect.py", ".github/workflows/probe.yml"]
 
 permissions:
   contents: write
@@ -17,11 +17,11 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - run: python probe_af.py
+      - run: python af_collect.py
       - name: Commit probe output
         run: |
           git config user.name "funding-bot"
           git config user.email "funding-bot@users.noreply.github.com"
-          git add probe/
+          git add probe/ data/af_* data/hypurrscan_fees.csv
           git commit -m "probe output" || echo "nothing"
           git push
