@@ -27,6 +27,10 @@ jobs:
       - name: Fetch funding data
         run: python collect.py
 
+      - name: Track Assistance Fund (buybacks, fee income, USDC yield)
+        continue-on-error: true   # never block the funding data commit
+        run: python af_collect.py
+
       - name: Ensure alert label exists
         env:
           GH_TOKEN: ${{ github.token }}
