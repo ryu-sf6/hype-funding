@@ -1,66 +1,66 @@
 {
-  "generated_utc": "2026-11-08T14:38:13Z",
+  "generated_utc": "2026-11-08T15:34:23Z",
   "af_address": "0xfefefefefefefefefefefefefefefefefefefefe",
   "latest_complete_day": {
-    "date_jst": "2026-11-07",
+    "date_jst": "2026-11-08",
     "complete": true,
-    "n_fills": 376,
-    "buy_hype": 11380.27,
-    "buy_usdc": 891372.13104,
-    "avg_px": 78.3260969238867,
+    "n_fills": 159,
+    "buy_hype": 6079.88,
+    "buy_usdc": 470307.70161,
+    "avg_px": 77.35476713520661,
     "aqa_yield_usdc": 0,
     "usdc_other_in": 0,
     "usdc_bal_change": 0.0,
     "bal_basis": "no_snapshot",
-    "fee_income_usdc": 891372.13104,
-    "hs_fees_usd": 1008674.0053315163,
+    "fee_income_usdc": 470307.70161,
+    "hs_fees_usd": 449596.2983763218,
     "hs_basis": "daily_interp",
-    "fee_to_hs_ratio": 0.8837068530848446
+    "fee_to_hs_ratio": 1.0460666676048616
   },
   "today_partial": {
-    "date_jst": "2026-11-08",
+    "date_jst": "2026-11-09",
     "complete": false,
-    "n_fills": 158,
-    "buy_hype": 5950.86,
-    "buy_usdc": 460308.26455,
-    "avg_px": 77.35155331330262,
+    "n_fills": 1,
+    "buy_hype": 124.07,
+    "buy_usdc": 9591.47949,
+    "avg_px": 77.307,
     "aqa_yield_usdc": 0,
     "usdc_other_in": 0,
     "usdc_bal_change": 0.0,
     "bal_basis": "no_snapshot",
-    "fee_income_usdc": 460308.26455,
+    "fee_income_usdc": 9591.47949,
     "hs_fees_usd": null,
     "hs_basis": "",
     "fee_to_hs_ratio": null
   },
   "last_7d": {
     "days": 7,
-    "from": "2026-11-01",
-    "to": "2026-11-07",
-    "buy_hype": 339473.33,
-    "buy_usdc": 28465942.70359,
-    "fee_income_usdc": 12548979.52384305,
+    "from": "2026-11-02",
+    "to": "2026-11-08",
+    "buy_hype": 338744.74,
+    "buy_usdc": 28338371.688049998,
+    "fee_income_usdc": 12421408.50830305,
     "aqa_yield_usdc": 15916960.65506723,
-    "hs_fees_usd": 13792102.834535599,
-    "avg_px": 83.85325204660407,
-    "fee_income_annualized": 654339646.6003876
+    "hs_fees_usd": 13485864.042273521,
+    "avg_px": 83.65700877908834,
+    "fee_income_annualized": 647687729.3615161
   },
   "last_30d": {
-    "days": 9,
+    "days": 10,
     "from": "2026-10-30",
-    "to": "2026-11-07",
-    "buy_hype": 411537.65,
-    "buy_usdc": 35057115.39926,
-    "fee_income_usdc": 19140152.21951305,
+    "to": "2026-11-08",
+    "buy_hype": 417617.53,
+    "buy_usdc": 35527423.10087,
+    "fee_income_usdc": 19610459.92112305,
     "aqa_yield_usdc": 15916960.65506723,
-    "hs_fees_usd": 19320741.17047763,
-    "avg_px": 85.1856820372571,
-    "fee_income_annualized": 776239506.6802515
+    "hs_fees_usd": 19770337.46885395,
+    "avg_px": 85.0716757528593,
+    "fee_income_annualized": 715781787.1209913
   },
   "run_rate_annualized_usdc": {
-    "fees_from_7d": 654339646.6003876,
+    "fees_from_7d": 647687729.3615161,
     "yield_from_last_payment": 193656354.6366513,
-    "total": 847996001.2370389
+    "total": 841344083.9981674
   },
   "last_yield": {
     "time_utc": "2026-11-03T00:00:00Z",
@@ -80,9 +80,9 @@
     }
   ],
   "af_balance_now": {
-    "time_utc": "2026-11-08T14:38:13Z",
-    "hype": 48746145.98473923,
-    "usdc": 9838.60333023
+    "time_utc": "2026-11-08T15:34:23Z",
+    "hype": 48746399.07473923,
+    "usdc": 3384.85996723
   },
   "warnings": [],
   "notes": {
@@ -93,12 +93,12 @@
     "bal_basis": "no_snapshot = AF USDC balance change assumed 0 (days before balance snapshots started)"
   },
   "collector": {
-    "fetched_fills": 13,
+    "fetched_fills": 5,
     "unexpected_fills": [],
     "n_unexpected": 0,
     "new_inflow_rows": 0,
-    "af_usdc": 9838.60333023,
-    "af_hype": 48746145.98473923,
+    "af_usdc": 3384.85996723,
+    "af_hype": 48746399.07473923,
     "hypurrscan_error": null
   }
 }
