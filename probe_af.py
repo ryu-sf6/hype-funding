@@ -1,13 +1,14 @@
 #!/usr/bin/env python3
-"""One-off probe: inspect the Assistance Fund (AF) system address data shapes.
+"""One-off probe #2: AF fill continuity (HYPE received outside fills), open orders,
+and an independent fee series (Hypurrscan) for cross-checking.
 
 Public protocol address only. Writes results to probe/ for inspection.
 """
+import csv
 import json
 import os
 import time
 import urllib.request
-from collections import Counter, defaultdict
 from datetime import datetime, timezone
 
 API = "https://api.hyperliquid.xyz/info"
@@ -33,128 +34,80 @@ def iso(ms):
     return datetime.fromtimestamp(ms / 1000, tz=timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
 
 
-def save(name, obj):
-    with open(os.path.join(OUT, name), "w") as f:
-        json.dump(obj, f, indent=1, ensure_ascii=False)
-
-
 now = int(time.time() * 1000)
 report = {"generated_utc": iso(now)}
 
-for label, payload in [
-    ("spot_state", {"type": "spotClearinghouseState", "user": AF}),
-    ("perp_state", {"type": "clearinghouseState", "user": AF}),
-]:
+# full fills (non-aggregated) since Oct 25, paged
+start = int(datetime(2026, 10, 25, tzinfo=timezone.utc).timestamp() * 1000)
+allf, cursor, pages = [], start, 0
+while pages < 12:
+    page = post({"type": "userFillsByTime", "user": AF, "startTime": cursor, "endTime": now})
+    pages += 1
+    if not page:
+        break
+    allf.extend(page)
+    mx = max(f["time"] for f in page)
+    if len(page) < 2000 or mx <= cursor:
+        break
+    cursor = mx  # same-ms fills: keep cursor at mx, dedupe below
+seen, fills = set(), []
+for f in allf:
+    if f["tid"] in seen:
+        continue
+    seen.add(f["tid"])
+    fills.append(f)
+fills.sort(key=lambda f: (f["time"], float(f["startPosition"])))
+report["fills"] = {"pages": pages, "n": len(fills),
+                   "first": iso(fills[0]["time"]) if fills else None,
+                   "last": iso(fills[-1]["time"]) if fills else None,
+                   "coins": sorted({f["coin"] for f in fills}),
+                   "sides": sorted({f["side"] for f in fills})}
+with open(os.path.join(OUT, "fills.csv"), "w", newline="") as fh:
+    w = csv.writer(fh)
+    w.writerow(["time_ms", "time_utc", "coin", "side", "px", "sz", "startPosition", "crossed", "fee", "feeToken", "tid"])
+    for f in fills:
+        w.writerow([f["time"], iso(f["time"]), f["coin"], f["side"], f["px"], f["sz"], f["startPosition"],
+                    f["crossed"], f["fee"], f["feeToken"], f["tid"]])
+
+# HYPE received outside of fills: gaps in startPosition between consecutive HYPE buys
+gaps, gap_by_day = [], {}
+hype = [f for f in fills if f["coin"] == "@107"]
+for a, b in zip(hype, hype[1:]):
+    exp = float(a["startPosition"]) + float(a["sz"])
+    g = float(b["startPosition"]) - exp
+    if abs(g) > 1e-6:
+        gaps.append({"from": iso(a["time"]), "to": iso(b["time"]), "gap": g})
+        d = iso(b["time"])[:10]
+        gap_by_day[d] = gap_by_day.get(d, 0.0) + g
+report["hype_gaps"] = {"n": len(gaps), "sum": sum(x["gap"] for x in gaps),
+                       "by_day": dict(sorted(gap_by_day.items())),
+                       "largest": sorted(gaps, key=lambda x: -abs(x["gap"]))[:15]}
+
+# open orders / current balances
+try:
+    oo = post({"type": "openOrders", "user": AF})
+    report["open_orders"] = {"n": len(oo), "sample": oo[:5],
+                             "usdc_locked_est": sum(float(o["sz"]) * float(o["limitPx"]) for o in oo if o.get("side") == "B")}
+except Exception as e:  # noqa: BLE001
+    report["open_orders"] = f"ERROR {e}"
+try:
+    s = post({"type": "spotClearinghouseState", "user": AF})
+    report["spot_now"] = {b["coin"]: b for b in s["balances"] if b["coin"] in ("USDC", "HYPE", "USDH", "USDT0", "USDE")}
+except Exception as e:  # noqa: BLE001
+    report["spot_now"] = f"ERROR {e}"
+
+# Independent fee series (Hypurrscan)
+for name, url in [("hypurrscan_fees", "https://api.hypurrscan.io/fees")]:
     try:
-        save(f"{label}.json", post(payload))
-        report[label] = "ok"
+        j = get(url)
+        if isinstance(j, list):
+            report[name] = {"n": len(j), "head": j[:2], "tail": j[-30:]}
+        else:
+            report[name] = {"type": type(j).__name__, "keys": list(j)[:20] if isinstance(j, dict) else None,
+                            "raw": json.dumps(j)[:2000]}
     except Exception as e:  # noqa: BLE001
-        report[label] = f"ERROR {e}"
+        report[name] = f"ERROR {e}"
 
-# spot meta: token / pair names
-try:
-    meta = post({"type": "spotMeta"})
-    tokens = {t["index"]: t["name"] for t in meta["tokens"]}
-    pairs = {}
-    for u in meta["universe"]:
-        pairs[u["name"]] = [tokens.get(i) for i in u["tokens"]]
-    save("spot_pairs_subset.json", {k: v for k, v in pairs.items() if "HYPE" in (v or []) or k in ("@107",)})
-    report["spotMeta"] = "ok"
-except Exception as e:  # noqa: BLE001
-    pairs = {}
-    report["spotMeta"] = f"ERROR {e}"
-
-
-def summarize_fills(fills):
-    s = {"n": len(fills)}
-    if not fills:
-        return s
-    ts = [f["time"] for f in fills]
-    s["first"], s["last"] = iso(min(ts)), iso(max(ts))
-    by = defaultdict(lambda: {"n": 0, "sz": 0.0, "ntl": 0.0, "fee": 0.0, "feeTokens": Counter(), "dirs": Counter()})
-    for f in fills:
-        k = (f["coin"], f["side"])
-        b = by[k]
-        b["n"] += 1
-        b["sz"] += float(f["sz"])
-        b["ntl"] += float(f["sz"]) * float(f["px"])
-        b["fee"] += float(f.get("fee", 0) or 0)
-        b["feeTokens"][f.get("feeToken")] += 1
-        b["dirs"][f.get("dir")] += 1
-    s["by_coin_side"] = {f"{c}|{sd}|{pairs.get(c)}": {**v, "feeTokens": dict(v["feeTokens"]), "dirs": dict(v["dirs"])}
-                         for (c, sd), v in by.items()}
-    # per UTC day
-    days = defaultdict(lambda: {"n": 0, "sz": 0.0, "ntl": 0.0})
-    for f in fills:
-        d = iso(f["time"])[:10]
-        days[d]["n"] += 1
-        days[d]["sz"] += float(f["sz"])
-        days[d]["ntl"] += float(f["sz"]) * float(f["px"])
-    s["by_day"] = dict(sorted(days.items()))
-    s["sample"] = fills[:5]
-    return s
-
-
-try:
-    fills = post({"type": "userFills", "user": AF})
-    report["userFills"] = summarize_fills(fills)
-except Exception as e:  # noqa: BLE001
-    report["userFills"] = f"ERROR {e}"
-
-# How far back can userFillsByTime go? page forward from Oct 1
-try:
-    start = int(datetime(2026, 10, 1, tzinfo=timezone.utc).timestamp() * 1000)
-    allf, pages, cursor = [], 0, start
-    while pages < 8:
-        page = post({"type": "userFillsByTime", "user": AF, "startTime": cursor, "endTime": now,
-                     "aggregateByTime": True})
-        pages += 1
-        if not page:
-            break
-        allf.extend(page)
-        mx = max(f["time"] for f in page)
-        if len(page) < 2000 or mx <= cursor:
-            break
-        cursor = mx + 1
-    # dedupe
-    seen, uniq = set(), []
-    for f in allf:
-        k = (f.get("tid"), f.get("time"), f.get("oid"))
-        if k in seen:
-            continue
-        seen.add(k)
-        uniq.append(f)
-    report["userFillsByTime_from_Oct1"] = {"pages": pages, **summarize_fills(uniq)}
-except Exception as e:  # noqa: BLE001
-    report["userFillsByTime_from_Oct1"] = f"ERROR {e}"
-
-# Ledger updates (deposits, transfers, etc.)
-try:
-    start = int(datetime(2026, 9, 1, tzinfo=timezone.utc).timestamp() * 1000)
-    led = post({"type": "userNonFundingLedgerUpdates", "user": AF, "startTime": start, "endTime": now})
-    types = Counter(x["delta"].get("type") for x in led)
-    big = []
-    for x in led:
-        d = x["delta"]
-        big.append({"time": iso(x["time"]), **{k: v for k, v in d.items()}})
-    report["ledger"] = {"n": len(led), "types": dict(types)}
-    save("ledger.json", big[-400:])
-except Exception as e:  # noqa: BLE001
-    report["ledger"] = f"ERROR {e}"
-
-# DefiLlama for cross-check
-llama = {}
-for slug in ["hyperliquid", "hyperliquid-perps", "hyperliquid-spot-orderbook"]:
-    for dt in ["dailyFees", "dailyRevenue", "dailyHoldersRevenue"]:
-        key = f"{slug}:{dt}"
-        try:
-            j = get(f"https://api.llama.fi/summary/fees/{slug}?dataType={dt}")
-            chart = j.get("totalDataChart") or []
-            llama[key] = [[iso(int(t) * 1000)[:10], v] for t, v in chart[-45:]]
-            llama[key + "_meta"] = {k: j.get(k) for k in ("name", "total24h", "total48hto24h", "total7d", "total30d", "methodology")}
-        except Exception as e:  # noqa: BLE001
-            llama[key] = f"ERROR {e}"
-save("defillama.json", llama)
-
-save("report.json", report)
-print(json.dumps({k: (v if isinstance(v, str) else "…") for k, v in report.items()}, ensure_ascii=False))
+with open(os.path.join(OUT, "report2.json"), "w") as fh:
+    json.dump(report, fh, indent=1, ensure_ascii=False)
+print("done", report["fills"])
