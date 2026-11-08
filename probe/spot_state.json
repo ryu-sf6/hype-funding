@@ -1,0 +1,242 @@
+{
+ "balances": [
+  {
+   "coin": "USDC",
+   "token": 0,
+   "total": "3210.47051723",
+   "hold": "0.0",
+   "entryNtl": "0.0"
+  },
+  {
+   "coin": "PURR",
+   "token": 1,
+   "total": "0.62505",
+   "hold": "0.0",
+   "entryNtl": "0.05826966"
+  },
+  {
+   "coin": "JEFF",
+   "token": 5,
+   "total": "0.9597",
+   "hold": "0.0",
+   "entryNtl": "2.47679376"
+  },
+  {
+   "coin": "TRUMP",
+   "token": 10,
+   "total": "12448.3012727",
+   "hold": "0.0",
+   "entryNtl": "6.35559341"
+  },
+  {
+   "coin": "VAPOR",
+   "token": 42,
+   "total": "1313.87388",
+   "hold": "0.0",
+   "entryNtl": "0.0565754"
+  },
+  {
+   "coin": "TEST",
+   "token": 59,
+   "total": "134752.1075",
+   "hold": "0.0",
+   "entryNtl": "4.40639391"
+  },
+  {
+   "coin": "MEOW",
+   "token": 61,
+   "total": "193600.310907",
+   "hold": "0.0",
+   "entryNtl": "11.1513779"
+  },
+  {
+   "coin": "ATEHUN",
+   "token": 64,
+   "total": "0.01961863",
+   "hold": "0.0",
+   "entryNtl": "0.01758947"
+  },
+  {
+   "coin": "PEAR",
+   "token": 71,
+   "total": "20199.817368",
+   "hold": "0.0",
+   "entryNtl": "2.01998173"
+  },
+  {
+   "coin": "BRIDGE",
+   "token": 73,
+   "total": "1862220.4811788001",
+   "hold": "0.0",
+   "entryNtl": "136280.96737791"
+  },
+  {
+   "coin": "NEIRO",
+   "token": 78,
+   "total": "44835.08891",
+   "hold": "0.0",
+   "entryNtl": "4.53731099"
+  },
+  {
+   "coin": "BERA",
+   "token": 80,
+   "total": "11123.888722",
+   "hold": "0.0",
+   "entryNtl": "9.95115249"
+  },
+  {
+   "coin": "WOW",
+   "token": 98,
+   "total": "57728.41925",
+   "hold": "0.0",
+   "entryNtl": "5.77284192"
+  },
+  {
+   "coin": "VAULT",
+   "token": 106,
+   "total": "8757.30020193",
+   "hold": "0.0",
+   "entryNtl": "8.7573002"
+  },
+  {
+   "coin": "STHYPE",
+   "token": 119,
+   "total": "0.00000002",
+   "hold": "0.0",
+   "entryNtl": "0.00000071"
+  },
+  {
+   "coin": "HPL",
+   "token": 120,
+   "total": "562233.56820001",
+   "hold": "0.0",
+   "entryNtl": "6465.12380073"
+  },
+  {
+   "coin": "KHYPE",
+   "token": 121,
+   "total": "0.009909",
+   "hold": "0.0",
+   "entryNtl": "0.79598006"
+  },
+  {
+   "coin": "KNTQ",
+   "token": 124,
+   "total": "4544789.7315221401",
+   "hold": "0.0",
+   "entryNtl": "1045818.78479032"
+  },
+  {
+   "coin": "PIP",
+   "token": 127,
+   "total": "800.0",
+   "hold": "0.0",
+   "entryNtl": "1782.24"
+  },
+  {
+   "coin": "MUNCH",
+   "token": 146,
+   "total": "910220.59144",
+   "hold": "0.0",
+   "entryNtl": "3.36781618"
+  },
+  {
+   "coin": "HYPE",
+   "token": 150,
+   "total": "48743902.8047392294",
+   "hold": "0.0",
+   "entryNtl": "1426258892.041623354"
+  },
+  {
+   "coin": "STAR",
+   "token": 154,
+   "total": "97843.63812127",
+   "hold": "0.0",
+   "entryNtl": "9.78436381"
+  },
+  {
+   "coin": "FARM",
+   "token": 161,
+   "total": "34.0",
+   "hold": "0.0",
+   "entryNtl": "1.15685"
+  },
+  {
+   "coin": "HYENA",
+   "token": 168,
+   "total": "0.21014774",
+   "hold": "0.0",
+   "entryNtl": "0.01194963"
+  },
+  {
+   "coin": "LIQD",
+   "token": 178,
+   "total": "0.19234809",
+   "hold": "0.0",
+   "entryNtl": "0.0007767"
+  },
+  {
+   "coin": "OTTI",
+   "token": 219,
+   "total": "528.36711129",
+   "hold": "0.0",
+   "entryNtl": "89.96506802"
+  },
+  {
+   "coin": "USDE",
+   "token": 235,
+   "total": "6185.96673591",
+   "hold": "0.0",
+   "entryNtl": "4172.24015226"
+  },
+  {
+   "coin": "USDT0",
+   "token": 268,
+   "total": "6072.2371375",
+   "hold": "0.0",
+   "entryNtl": "18.60716354"
+  },
+  {
+   "coin": "JOFF",
+   "token": 296,
+   "total": "4.2",
+   "hold": "0.0",
+   "entryNtl": "4.2"
+  },
+  {
+   "coin": "HWAVE",
+   "token": 301,
+   "total": "0.55960982",
+   "hold": "0.0",
+   "entryNtl": "0.00060269"
+  },
+  {
+   "coin": "THBILL",
+   "token": 323,
+   "total": "0.00000043",
+   "hold": "0.0",
+   "entryNtl": "0.00000043"
+  },
+  {
+   "coin": "USDH",
+   "token": 360,
+   "total": "43220.28460608",
+   "hold": "0.0",
+   "entryNtl": "41895.29496107"
+  },
+  {
+   "coin": "UZEC",
+   "token": 419,
+   "total": "0.000014724",
+   "hold": "0.0",
+   "entryNtl": "0.01131127"
+  },
+  {
+   "coin": "MAX",
+   "token": 734,
+   "total": "0.121088",
+   "hold": "0.0",
+   "entryNtl": "0.00000003"
+  }
+ ]
+}
