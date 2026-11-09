@@ -1,5 +1,5 @@
 {
-  "generated_utc": "2026-11-09T03:54:16Z",
+  "generated_utc": "2026-11-09T05:01:47Z",
   "af_address": "0xfefefefefefefefefefefefefefefefefefefefe",
   "latest_complete_day": {
     "date_jst": "2026-11-08",
@@ -20,15 +20,15 @@
   "today_partial": {
     "date_jst": "2026-11-09",
     "complete": false,
-    "n_fills": 484,
-    "buy_hype": 18667.510000000002,
-    "buy_usdc": 1400806.07834,
-    "avg_px": 75.03979257758533,
+    "n_fills": 500,
+    "buy_hype": 19204.510000000002,
+    "buy_usdc": 1440804.0461900001,
+    "avg_px": 75.02425452094326,
     "aqa_yield_usdc": 0,
     "usdc_other_in": 0,
     "usdc_bal_change": 0.0,
     "bal_basis": "no_snapshot",
-    "fee_income_usdc": 1400806.07834,
+    "fee_income_usdc": 1440804.0461900001,
     "hs_fees_usd": null,
     "hs_basis": "",
     "fee_to_hs_ratio": null
@@ -80,9 +80,9 @@
     }
   ],
   "af_balance_now": {
-    "time_utc": "2026-11-09T03:54:16Z",
-    "hype": 48764942.51473923,
-    "usdc": 3062.27491823
+    "time_utc": "2026-11-09T05:01:47Z",
+    "hype": 48765479.51473923,
+    "usdc": 6574.75297723
   },
   "warnings": [],
   "notes": {
@@ -97,8 +97,8 @@
     "unexpected_fills": [],
     "n_unexpected": 0,
     "new_inflow_rows": 0,
-    "af_usdc": 3062.27491823,
-    "af_hype": 48764942.51473923,
+    "af_usdc": 6574.75297723,
+    "af_hype": 48765479.51473923,
     "hypurrscan_error": null
   }
 }
