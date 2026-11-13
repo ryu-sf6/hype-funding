@@ -1,24 +1,24 @@
 {
   "coin": "HYPE",
-  "generated_utc": "2026-11-13T15:48:30Z",
+  "generated_utc": "2026-11-13T16:53:12Z",
   "current": {
-    "funding_hourly": 1.25e-05,
-    "funding_annualized": 0.10950000000000001,
-    "mark_px": 72.502,
-    "oracle_px": 72.544,
-    "open_interest": 21743877.15999999
+    "funding_hourly": -3.5605e-06,
+    "funding_annualized": -0.03118998,
+    "mark_px": 72.478,
+    "oracle_px": 72.5365,
+    "open_interest": 21816896.259999994
   },
   "last_settled": {
-    "time_utc": "2026-11-13T15:00:00Z",
-    "funding_rate": 1.5953e-06
+    "time_utc": "2026-11-13T16:00:00Z",
+    "funding_rate": 1.25e-05
   },
   "windows": {
     "24h": {
       "hours_expected": 24,
       "hours_available": 24,
-      "sum": 0.00025473550000000003,
-      "mean_hourly": 1.0613979166666668e-05,
-      "annualized_from_mean": 0.09297845750000001,
+      "sum": 0.00026026660000000003,
+      "mean_hourly": 1.0844441666666667e-05,
+      "annualized_from_mean": 0.09499730900000002,
       "hours_negative": 1,
       "min": -2.8938e-06,
       "max": 1.25e-05
@@ -26,11 +26,11 @@
     "3d": {
       "hours_expected": 72,
       "hours_available": 72,
-      "sum": 0.0008143996,
-      "mean_hourly": 1.1311105555555555e-05,
-      "annualized_from_mean": 0.09908528466666666,
-      "hours_negative": 2,
-      "min": -1.08285e-05,
+      "sum": 0.0008377281000000001,
+      "mean_hourly": 1.16351125e-05,
+      "annualized_from_mean": 0.1019235855,
+      "hours_negative": 1,
+      "min": -2.8938e-06,
       "max": 1.25e-05
     },
     "7d": {
@@ -45,10 +45,10 @@
     },
     "30d": {
       "hours_expected": 720,
-      "hours_available": 421,
-      "sum": 0.0072426856,
-      "mean_hourly": 1.7203528741092635e-05,
-      "annualized_from_mean": 0.15070291177197148,
+      "hours_available": 422,
+      "sum": 0.0072551856,
+      "mean_hourly": 1.7192382938388624e-05,
+      "annualized_from_mean": 0.15060527454028436,
       "hours_negative": 19,
       "min": -4.62956e-05,
       "max": 0.0002174473
