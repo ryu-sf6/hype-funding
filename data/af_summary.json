@@ -1,5 +1,5 @@
 {
-  "generated_utc": "2026-11-16T15:05:27Z",
+  "generated_utc": "2026-11-16T16:42:31Z",
   "af_address": "0xfefefefefefefefefefefefefefefefefefefefe",
   "latest_complete_day": {
     "date_jst": "2026-11-16",
@@ -13,22 +13,22 @@
     "usdc_bal_change": -10547.243433,
     "bal_basis": "snapshot",
     "fee_income_usdc": 1507212.253777,
-    "hs_fees_usd": null,
-    "hs_basis": "",
-    "fee_to_hs_ratio": null
+    "hs_fees_usd": 1914876.1328866482,
+    "hs_basis": "hourly",
+    "fee_to_hs_ratio": 0.7871069192892906
   },
   "today_partial": {
     "date_jst": "2026-11-17",
     "complete": false,
-    "n_fills": 58,
-    "buy_hype": 3965.58,
-    "buy_usdc": 263887.62257,
-    "avg_px": 66.54452124783765,
+    "n_fills": 143,
+    "buy_hype": 7195.24,
+    "buy_usdc": 477823.4741,
+    "avg_px": 66.40827465101928,
     "aqa_yield_usdc": 0,
     "usdc_other_in": 0,
     "usdc_bal_change": 0.0,
     "bal_basis": "no_snapshot",
-    "fee_income_usdc": 263887.62257,
+    "fee_income_usdc": 477823.4741,
     "hs_fees_usd": null,
     "hs_basis": "",
     "fee_to_hs_ratio": null
@@ -41,7 +41,7 @@
     "buy_usdc": 16123927.58657,
     "fee_income_usdc": 16105277.06557,
     "aqa_yield_usdc": 0,
-    "hs_fees_usd": null,
+    "hs_fees_usd": 17346251.08333969,
     "avg_px": 69.52316692542503,
     "fee_income_annualized": 839775161.27615
   },
@@ -53,7 +53,7 @@
     "buy_usdc": 53866774.01563,
     "fee_income_usdc": 37943051.96351605,
     "aqa_yield_usdc": 15916960.65506723,
-    "hs_fees_usd": null,
+    "hs_fees_usd": 39628279.861305475,
     "avg_px": 79.29842995697238,
     "fee_income_annualized": 769400775.9268533
   },
@@ -80,9 +80,9 @@
     }
   ],
   "af_balance_now": {
-    "time_utc": "2026-11-16T15:05:27Z",
-    "hype": 49011914.86473923,
-    "usdc": 3079.73096323
+    "time_utc": "2026-11-16T16:42:31Z",
+    "hype": 49015144.52473923,
+    "usdc": 48423.80790123
   },
   "warnings": [],
   "notes": {
@@ -93,12 +93,12 @@
     "bal_basis": "no_snapshot = AF USDC balance change assumed 0 (days before balance snapshots started)"
   },
   "collector": {
-    "fetched_fills": 106,
+    "fetched_fills": 143,
     "unexpected_fills": [],
     "n_unexpected": 0,
-    "new_inflow_rows": 1,
-    "af_usdc": 3079.73096323,
-    "af_hype": 49011914.86473923,
+    "new_inflow_rows": 0,
+    "af_usdc": 48423.80790123,
+    "af_hype": 49015144.52473923,
     "hypurrscan_error": null
   }
 }
