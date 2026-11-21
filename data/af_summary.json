@@ -1,5 +1,5 @@
 {
-  "generated_utc": "2026-11-21T13:57:44Z",
+  "generated_utc": "2026-11-21T14:50:26Z",
   "af_address": "0xfefefefefefefefefefefefefefefefefefefefe",
   "latest_complete_day": {
     "date_jst": "2026-11-20",
@@ -26,9 +26,9 @@
     "avg_px": 59.68490256966974,
     "aqa_yield_usdc": 0,
     "usdc_other_in": 0,
-    "usdc_bal_change": 376626.41425499995,
+    "usdc_bal_change": 494268.767595,
     "bal_basis": "snapshot",
-    "fee_income_usdc": 3914514.6674650004,
+    "fee_income_usdc": 4032157.0208050003,
     "hs_fees_usd": null,
     "hs_basis": "",
     "fee_to_hs_ratio": null
@@ -80,9 +80,9 @@
     }
   ],
   "af_balance_now": {
-    "time_utc": "2026-11-21T13:57:44Z",
+    "time_utc": "2026-11-21T14:50:26Z",
     "hype": 49191269.55473923,
-    "usdc": 388524.92643823
+    "usdc": 506167.27977823
   },
   "warnings": [],
   "notes": {
@@ -97,7 +97,7 @@
     "unexpected_fills": [],
     "n_unexpected": 0,
     "new_inflow_rows": 0,
-    "af_usdc": 388524.92643823,
+    "af_usdc": 506167.27977823,
     "af_hype": 49191269.55473923,
     "hypurrscan_error": null
   }
