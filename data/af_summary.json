@@ -1,5 +1,5 @@
 {
-  "generated_utc": "2026-11-22T05:56:24Z",
+  "generated_utc": "2026-11-22T07:06:10Z",
   "af_address": "0xfefefefefefefefefefefefefefefefefefefefe",
   "latest_complete_day": {
     "date_jst": "2026-11-21",
@@ -20,15 +20,15 @@
   "today_partial": {
     "date_jst": "2026-11-22",
     "complete": false,
-    "n_fills": 425,
-    "buy_hype": 19648.850000000002,
-    "buy_usdc": 1193623.36969,
-    "avg_px": 60.747747053389894,
+    "n_fills": 445,
+    "buy_hype": 20171.920000000002,
+    "buy_usdc": 1224989.5278699999,
+    "avg_px": 60.727463120516035,
     "aqa_yield_usdc": 0,
     "usdc_other_in": 0,
     "usdc_bal_change": 0.0,
     "bal_basis": "no_snapshot",
-    "fee_income_usdc": 1193623.36969,
+    "fee_income_usdc": 1224989.5278699999,
     "hs_fees_usd": null,
     "hs_basis": "",
     "fee_to_hs_ratio": null
@@ -80,9 +80,9 @@
     }
   ],
   "af_balance_now": {
-    "time_utc": "2026-11-22T05:56:24Z",
-    "hype": 49210918.40473923,
-    "usdc": 1408.15612323
+    "time_utc": "2026-11-22T07:06:10Z",
+    "hype": 49211441.47473923,
+    "usdc": 4202.45326423
   },
   "warnings": [],
   "notes": {
@@ -93,12 +93,12 @@
     "bal_basis": "no_snapshot = AF USDC balance change assumed 0 (days before balance snapshots started)"
   },
   "collector": {
-    "fetched_fills": 34,
+    "fetched_fills": 40,
     "unexpected_fills": [],
     "n_unexpected": 0,
     "new_inflow_rows": 0,
-    "af_usdc": 1408.15612323,
-    "af_hype": 49210918.40473923,
+    "af_usdc": 4202.45326423,
+    "af_hype": 49211441.47473923,
     "hypurrscan_error": null
   }
 }
