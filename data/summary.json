@@ -1,16 +1,16 @@
 {
   "coin": "HYPE",
-  "generated_utc": "2026-11-22T18:45:19Z",
+  "generated_utc": "2026-11-22T19:49:37Z",
   "current": {
     "funding_hourly": 1.25e-05,
     "funding_annualized": 0.10950000000000001,
-    "mark_px": 62.502,
-    "oracle_px": 62.5245,
-    "open_interest": 18509776.22
+    "mark_px": 62.269,
+    "oracle_px": 62.292,
+    "open_interest": 18497831.180000003
   },
   "last_settled": {
-    "time_utc": "2026-11-22T18:00:00Z",
-    "funding_rate": 1.0776e-05
+    "time_utc": "2026-11-22T19:00:00Z",
+    "funding_rate": 1.25e-05
   },
   "windows": {
     "24h": {
@@ -26,9 +26,9 @@
     "3d": {
       "hours_expected": 72,
       "hours_available": 72,
-      "sum": 0.0007944807,
-      "mean_hourly": 1.1034454166666667e-05,
-      "annualized_from_mean": 0.0966618185,
+      "sum": 0.0008058501,
+      "mean_hourly": 1.11923625e-05,
+      "annualized_from_mean": 0.09804509550000001,
       "hours_negative": 3,
       "min": -1.6868e-05,
       "max": 1.25e-05
@@ -36,19 +36,19 @@
     "7d": {
       "hours_expected": 168,
       "hours_available": 168,
-      "sum": 0.0019265841,
-      "mean_hourly": 1.1467762500000001e-05,
-      "annualized_from_mean": 0.10045759950000002,
-      "hours_negative": 10,
+      "sum": 0.0019515563,
+      "mean_hourly": 1.1616406547619048e-05,
+      "annualized_from_mean": 0.10175972135714285,
+      "hours_negative": 9,
       "min": -2.78953e-05,
       "max": 9.13368e-05
     },
     "30d": {
       "hours_expected": 720,
-      "hours_available": 640,
-      "sum": 0.0093529873,
-      "mean_hourly": 1.4614042656250002e-05,
-      "annualized_from_mean": 0.12801901366875001,
+      "hours_available": 641,
+      "sum": 0.009365487300000001,
+      "mean_hourly": 1.4610744617784713e-05,
+      "annualized_from_mean": 0.1279901228517941,
       "hours_negative": 46,
       "min": -4.62956e-05,
       "max": 0.0002174473
