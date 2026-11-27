@@ -1,12 +1,12 @@
 {
   "coin": "HYPE",
-  "generated_utc": "2026-11-27T17:05:56Z",
+  "generated_utc": "2026-11-27T17:57:24Z",
   "current": {
     "funding_hourly": 1.25e-05,
     "funding_annualized": 0.10950000000000001,
-    "mark_px": 64.381,
-    "oracle_px": 64.3929,
-    "open_interest": 19425822.259999998
+    "mark_px": 63.634,
+    "oracle_px": 63.654,
+    "open_interest": 19192285.17999999
   },
   "last_settled": {
     "time_utc": "2026-11-27T17:00:00Z",
